@@ -1,20 +1,18 @@
 <img src="https://user-images.githubusercontent.com/17819874/79853717-5db2f900-8403-11ea-99ba-ed0bb3cdb9ef.png" height="100"/>
 
-# MY MOVIE  
+# MY BUCKET LIST  
 [![made-with-Markdown](https://img.shields.io/badge/Made%20with-Markdown-1f425f.svg)](http://commonmark.org)
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/ohahohah/readme-template/graphs/commit-activity) 
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 
 
 
-> 영화 리뷰를 작성하고 그 기록을 분석한다. 
-- 웹사이트 url / (챗봇일 경우)텔레그램 등 메신저 주소
-- 영화 리뷰를 작성하고 관련된 정보를 불러와 저장할수 있습니다. 저장된 정보를 바탕으로 나의 영화 선호 취향을 분석할 수 있습니다.
+> 버킷리스트를 작성하고 달성률을 체크한다 
+- 버킷리스트를 작성하고 수정 및 삭제, 달성률을 관리할 수 있습니다.
 
 ## 핵심 기능  Key Feature
-- 영화에 대한 리뷰를 작성하고 저장합니다.
-- 영화에 관련된 정보를 스크래핑으로 불러옵니다. 
-- 작성한 리뷰와 불러온 정보를 기반으로 분석된 결과를 보여줍니다.
+- 버킷리스트를 작성하고 저장합니다.
+- 각 리스트의 달성률을 체크합니다.
 
 ## 사용 How To Use
 <!--
@@ -54,4 +52,3 @@
 -->
 
 XYZ license를 준수합니다. ``LICENSE``에서 자세한 정보를 확인할 수 있습니다.  
-[https://github.com/zo2kim/myproject/LICENSE.md]
