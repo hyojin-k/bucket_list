@@ -1,0 +1,179 @@
+@charset "utf-8";
+
+* {
+    padding: 0;
+    border: 0;
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+li {
+    list-style: none;
+}
+
+body {
+    font-family: 'Raleway', 'NanumSquare', sans-serif;
+}
+
+
+button {
+    background: none;
+    outline: none;
+    cursor: pointer;
+}
+
+input {
+    background: none;
+    outline: none;
+}
+
+select {
+    background: none;
+    outline: none;
+    border-radius: 0;
+    cursor: pointer;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+}
+
+
+/*공통요소*/
+.clearfix::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+h1 {
+    padding: 80px 0;
+    text-align: center;
+}
+
+
+
+.add_list {
+    /*border: 2px solid black;*/
+    box-sizing: border-box;
+    width: 60%;
+    padding: 20px;
+    margin: 0 auto;
+    /*border-radius: 20px;*/
+}
+
+.list_div {
+    font-size: 14px;
+}
+
+#name, #goal, #how {
+    width: 100%;
+    border: 1px solid #444444;
+    padding: 8px;
+    margin: 10px 0;
+    border-radius: 5px;
+}
+
+.add_complete {
+    display: block;
+    border-bottom: 1px solid #444444;
+    padding: 10px 8px;
+    margin: 0 auto;
+}
+
+@media (max-width: 800px) {
+    .add_list {
+        width: 80%;
+    }
+}
+
+/*--------------------------------------*/
+
+h2 {
+    text-align: center;
+    margin: 80px 0;
+}
+
+.my_list {
+    /*border: 1px solid black;*/
+    max-width: 1024px;
+    margin: 0 auto;
+}
+
+.list_wrap {
+    padding: 60px 0;
+    border-bottom: 1px solid #444444;
+}
+
+.list_left {
+    width: 73%;
+    padding: 0 1%;
+    /*border: 1px solid red;*/
+    box-sizing: border-box;
+    float: left;
+}
+
+.list_right {
+    width: 25%;
+    height: 230px;
+    border: 1px solid blue;
+    box-sizing: border-box;
+    float: left;
+}
+
+.list_name {
+    font-size: 24px;
+}
+
+.list_goal {
+    font-weight: bold;
+    font-style: italic;
+    margin: 16px 0;
+}
+
+.list_how {
+    line-height: 1.6;
+    word-break: keep-all;
+}
+
+.edit_list {
+    border: 1px solid #444444;
+    padding: 8px 10px;
+    margin-top: 16px;
+}
+
+.del_list {
+    background-color: #444444;
+    border: 1px solid #444444;
+    color: #ffffff;
+    padding: 8px 10px;
+    margin: 16px 0 0 10px;
+}
+
+@media (max-width: 800px) {
+    .list_wrap {
+        width: 40%;
+        float: left;
+        padding: 2.5%;
+        margin: 20px 2%;
+        border: 1px solid #444444;
+    }
+    .list_left {
+        width: 100%;
+    }
+    .list_right {
+        width: 100%;
+        height: 230px;
+        border: 1px solid blue;
+        box-sizing: border-box;
+        margin-top: 20px;
+    }
+}
+@media (max-width: 600px) {
+    .list_wrap {
+        width: 90%;
+    }
+
+}

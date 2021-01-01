@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- CSS -->
+        <link rel="stylesheet" href="static/bucketList.css?">
+
+        <!-- JS -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+                integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+                crossorigin="anonymous"></script>
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+        <!--        <script src="{{ url_for('static', filename='script.js') }}"></script>-->
+        <script src="static/bucketList.js"></script>
+
+        <title>BUCKET LIST</title>
+    </head>
+    <body>
+        <h1>MY BUCKET LIST</h1>
+
+
+        <div class="add_list">
+            <div class="add_name">
+                <span class="list_div">리스트명</span>
+                <input id="name" type="text" placeholder="버킷리스트 입력">
+            </div>
+            <div class="add_goal">
+                <span class="list_div">목표</span>
+                <input id="goal" type="text" placeholder="목표 입력">
+            </div>
+            <div class="add_how">
+                <span class="list_div">방법</span>
+                <textarea id="how" cols="30" rows="5" placeholder="내용 입력"
+                          onkeyup='validateLength(this)'></textarea>
+            </div>
+            <button onclick="addList()" id="add_btn" class="add_complete">리스트 추가</button>
+        </div>
+        <div>
+            <h2>MY LIST</h2>
+            <ul id="list_box" class="my_list clearfix">
+                <li class="list_wrap clearfix">
+                    <div class="list_left">
+                        <h3 class="list_name">버킷리스트</h3>
+                        <p class="list_goal">길을 천자만홍이 끝까지 시들어 간에 보라. 보이는 군영과 끝까지 인간은 이것이다.</p>
+                        <p class="list_how">생의 곳으로 충분히 이성은 밝은 작고 품고 따뜻한 원대하고, 뿐이다. 기쁘며, 어디 것이다.보라, 사랑의 그들은 든 보는 시들어 무한한
+                            이것이다. 찾아 때에, 끓는 이것이다. 그들에게 원질이 이 청춘의 뿐이다. 설레는 이상의 따뜻한 놀이 희망의 못할 얼음 방황하여도, 것이다. 그들은 지혜는 때까지
+                            간에 가치를 되는 아름다우냐? 속에서 없으면 풍부하게 얼마나 피어나는 것이다.</p>
+                        <button onclick="editList()" id="edit_btn" class="edit_list">수정</button>
+                        <button onclick="deleteList()" id="del_btn" class="del_list">삭제</button>
+                    </div>
+                    <div class="list_right">
+
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+    </body>
+</html>
