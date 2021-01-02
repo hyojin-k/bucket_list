@@ -48,7 +48,7 @@ function showList() {
                                             <p class="list_goal">${goal}</p>
                                             <p class="list_how">${how}</p>
                                             <button onclick="editList()" id="edit_btn" class="edit_list">수정</button>
-                                            <button onclick="deleteList()" id="del_btn" class="del_list">삭제</button>
+                                            <button onclick="deleteList('${name}')" id="del_btn" class="del_list">삭제</button>
                                         </div>
                                         <div class="list_right">
                     
@@ -65,3 +65,19 @@ function showList() {
 }
 
 
+
+
+// 리스트 지우기
+function deleteList(name){
+     $.ajax({
+        type: 'POST',
+        url: '/list/delete',
+        data: {name_give:name},
+        success: function (response) {
+            if (response['result'] == 'success') {
+                alert('리스트를 삭제했습니다.')
+                window.location.reload();
+            }
+        }
+    });
+}

@@ -32,6 +32,14 @@ def write_list():
 def get_list():
     bucketlists = list(db.bucketlists.find({}, {'_id':0}))
     return jsonify({'result':'success', 'bucketlists':bucketlists})
+ 
+
+# 리스트 지우기
+@app.route('/list/delete', methods=['POST'])
+def delete_list():
+    name_receive = request.form['name_give']
+    db.bucketlists.delete_one({'name':name_receive})
+    return jsonify({'result': 'success'})
 
 
 if __name__ == '__main__':
