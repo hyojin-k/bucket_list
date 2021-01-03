@@ -53,8 +53,6 @@ h1 {
     text-align: center;
 }
 
-
-
 .add_list {
     /*border: 2px solid black;*/
     box-sizing: border-box;
@@ -103,24 +101,24 @@ h2 {
 }
 
 .list_wrap {
-    padding: 60px 0;
+    width: 98%;
+    padding: 60px 1%;
     border-bottom: 1px solid #444444;
 }
 
-.list_left {
-    width: 73%;
-    padding: 0 1%;
-    /*border: 1px solid red;*/
-    box-sizing: border-box;
-    float: left;
+.list_top {
+    width: 100%;
+
 }
 
-.list_right {
-    width: 25%;
-    height: 230px;
-    border: 1px solid blue;
-    box-sizing: border-box;
+.progress {
+    width: 70%;
     float: left;
+    margin-top: 16px;
+}
+
+.btn_wrap {
+    float: right;
 }
 
 .list_name {
@@ -141,7 +139,6 @@ h2 {
 .edit_list {
     border: 1px solid #444444;
     padding: 8px 10px;
-    margin-top: 16px;
 }
 
 .del_list {
@@ -149,7 +146,7 @@ h2 {
     border: 1px solid #444444;
     color: #ffffff;
     padding: 8px 10px;
-    margin: 16px 0 0 10px;
+    margin: 0 0 0 10px;
 }
 
 @media (max-width: 800px) {
@@ -160,17 +157,18 @@ h2 {
         margin: 20px 2%;
         border: 1px solid #444444;
     }
-    .list_left {
+
+    .progress {
         width: 100%;
+        float: none;
+        margin: 12px 0;
     }
-    .list_right {
-        width: 100%;
-        height: 230px;
-        border: 1px solid blue;
-        box-sizing: border-box;
-        margin-top: 20px;
+
+    .btn_wrap {
+        float: none;
     }
 }
+
 @media (max-width: 600px) {
     .list_wrap {
         width: 90%;

@@ -42,16 +42,21 @@ function showList() {
                     let goal = lists[i]['goal'];
                     let how = lists[i]['how'];
 
-                    let tempHtml = `<li class="list_wrap clearfix">
-                                        <div class="list_left">
+                    let tempHtml = `<li class="list_wrap">
+                                        <div class="list_top">
                                             <h3 class="list_name">${name}</h3>
                                             <p class="list_goal">${goal}</p>
                                             <p class="list_how">${how}</p>
-                                            <button onclick="editList()" id="edit_btn" class="edit_list">수정</button>
-                                            <button onclick="deleteList('${name}')" id="del_btn" class="del_list">삭제</button>
+                                           
                                         </div>
-                                        <div class="list_right">
-                    
+                                        <div class="list_bottom clearfix">
+                                             <div class="progress">
+                                              <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
+                                            </div>
+                                            <div class="btn_wrap">
+                                                <button onclick="editList()" id="edit_btn" class="edit_list">수정</button>
+                                                <button onclick="deleteList('${name}')" id="del_btn" class="del_list">삭제</button>
+                                            </div>
                                         </div>
                                     </li>`
 
