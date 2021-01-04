@@ -5,7 +5,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <!-- CSS -->
         <link rel="stylesheet" href="static/bucketList.css?">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+              integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+              crossorigin="anonymous">
 
         <!-- JS -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -43,17 +45,23 @@
             <h2>MY LIST</h2>
             <ul id="list_box" class="my_list clearfix">
                 <li class="list_wrap clearfix">
-                    <div class="list_left">
+                    <div class="list_top">
                         <h3 class="list_name">버킷리스트</h3>
                         <p class="list_goal">길을 천자만홍이 끝까지 시들어 간에 보라. 보이는 군영과 끝까지 인간은 이것이다.</p>
                         <p class="list_how">생의 곳으로 충분히 이성은 밝은 작고 품고 따뜻한 원대하고, 뿐이다. 기쁘며, 어디 것이다.보라, 사랑의 그들은 든 보는 시들어 무한한
                             이것이다. 찾아 때에, 끓는 이것이다. 그들에게 원질이 이 청춘의 뿐이다. 설레는 이상의 따뜻한 놀이 희망의 못할 얼음 방황하여도, 것이다. 그들은 지혜는 때까지
                             간에 가치를 되는 아름다우냐? 속에서 없으면 풍부하게 얼마나 피어나는 것이다.</p>
-                        <button onclick="editList()" id="edit_btn" class="edit_list">수정</button>
-                        <button onclick="deleteList()" id="del_btn" class="del_list">삭제</button>
                     </div>
-                    <div class="list_right">
-
+                    <div class="list_bottom clearfix">
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25"
+                                 aria-valuemin="0" aria-valuemax="100">25%
+                            </div>
+                        </div>
+                        <div class="btn_wrap">
+                            <button onclick="editList()" id="edit_btn" class="edit_list">수정</button>
+                            <button onclick="deleteList()" id="del_btn" class="del_list">삭제</button>
+                        </div>
                     </div>
                 </li>
             </ul>
