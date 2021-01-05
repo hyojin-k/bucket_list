@@ -54,6 +54,7 @@ function showList() {
                                               <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
                                             </div>
                                             <div class="btn_wrap">
+                                                <button onclick="up()" id="up_btn" class="up">UP</button>
                                                 <button onclick="editList()" id="edit_btn" class="edit_list">수정</button>
                                                 <button onclick="deleteList('${name}')" id="del_btn" class="del_list">삭제</button>
                                             </div>
