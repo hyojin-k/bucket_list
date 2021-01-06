@@ -42,7 +42,7 @@ function showList() {
                     let goal = lists[i]['goal'];
                     let how = lists[i]['how'];
 
-                    let tempHtml = `<li class="list_wrap">
+                    let tempHtml = `<li class="list_wrap clearfix">
                                         <div class="list_top">
                                             <h3 class="list_name">${name}</h3>
                                             <p class="list_goal">${goal}</p>
@@ -50,10 +50,10 @@ function showList() {
                                            
                                         </div>
                                         <div class="list_bottom clearfix">
-                                            <div class="progress_wrap clearfix">
+                                            <div class="progress_wrap">
                                                 <button onclick="percent('down')" class="down">-</button>
                                                 <div class="progress">
-                                                    <div id="bar" class="progress_bar">0%</div>
+                                                    <div id="bar" class="progress_bar">80%</div>
                                                 </div>
                                                 <button onclick="percent('up')" class="up">+</button>
                                             </div>
