@@ -5,9 +5,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <!-- CSS -->
         <link rel="stylesheet" href="static/bucketList.css?">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-              integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-              crossorigin="anonymous">
 
         <!-- JS -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -54,12 +51,15 @@
                     </div>
                     <div class="list_bottom clearfix">
                         <div class="progress">
-                            <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25"
-                                 aria-valuemin="0" aria-valuemax="100">25%
+                            <div class="progress_wrap clearfix">
+                                <button onclick="percent('down')" class="down">-</button>
+                                <div class="progress">
+                                    <div id="bar" class="progress_bar">0%</div>
+                                </div>
+                                <button onclick="percent('up')" class="up">+</button>
                             </div>
                         </div>
                         <div class="btn_wrap">
-                            <button onclick="up()" id="up_btn" class="up">UP</button>
                             <button onclick="editList()" id="edit_btn" class="edit_list">수정</button>
                             <button onclick="deleteList()" id="del_btn" class="del_list">삭제</button>
                         </div>

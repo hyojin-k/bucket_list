@@ -122,19 +122,40 @@ h2 {
     word-break: keep-all;
 }
 
-.progress {
-    width: 70%;
+.progress_wrap {
+    width: 80%;
     float: left;
     margin-top: 16px;
 }
 
+.down, .up{
+    width: 36px;
+    height: 36px;
+    border: 1px solid black;
+    box-sizing: border-box;
+    float: left;
+}
+.progress{
+    width: 80%;
+    height: 36px;
+    background-color: #bdbdbd;
+    float: left;
+    margin: 0 12px;
+}
+.progress_bar{
+    width: 0%;
+    height: 36px;
+    background-color: cornflowerblue;
+    color: white;
+    text-align: center;
+    line-height: 36px;
+}
+
 .btn_wrap {
     float: right;
+    margin-top: 14px;
 }
-.up{
-    border: 1px dotted #444444;
-    padding: 8px 16px;
-}
+
 .edit_list {
     border: 1px solid #444444;
     padding: 8px 10px;
@@ -153,17 +174,18 @@ h2 {
     .list_wrap {
         width: 45%;
         float: left;
-        padding: 24px;
+        padding: 20px;
         margin: 20px 2.5%;
         border: 1px solid #bdbdbd;
     }
 
-    .progress {
+    .progress_wrap {
         width: 100%;
-        /*float: none;*/
         margin: 20px 0;
     }
-
+    .progress{
+        width: 70%;
+    }
 }
 
 @media (max-width: 600px) {
