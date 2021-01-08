@@ -6,27 +6,31 @@ $(document).ready(function () {
 function addList() {
     let name = $('#name').val();
     let goal = $('#goal').val();
+    let now = $('#now').val();
     let how = $('#how').val();
 
-    if (name === ''){
+    if (name === '') {
         alert('버킷리스트를 입력해주세요')
-    } else if (goal === ''){
+    } else if (goal === '') {
         alert('목표를 입력해주세요')
-    } else if (how === ''){
+    } else if (now === '') {
+        alert('현재 달성률을 입력해주세요')
+    } else if (how === '') {
         alert('상세내용을 입력해주세요')
-    }
+    } else {
 
-    $.ajax({
-        type: "POST",
-        url: "/list",
-        data: {name_give: name, goal_give: goal,how_give: how},
-        success: function (response) {
-            if (response["result"] == "success") {
-                alert(response["msg"]);
-                window.location.reload();
+        $.ajax({
+            type: "POST",
+            url: "/list",
+            data: {name_give: name, goal_give: goal, now_give: now, how_give: how},
+            success: function (response) {
+                if (response["result"] == "success") {
+                    alert(response["msg"]);
+                    window.location.reload();
+                }
             }
-        }
-    })
+        })
+    }
 }
 
 function showList() {
@@ -37,9 +41,10 @@ function showList() {
         success: function (response) {
             if (response["result"] == "success") {
                 let lists = response['bucketlists'];
-                for(let i = 0; i<lists.length; i++){
+                for (let i = 0; i < lists.length; i++) {
                     let name = lists[i]['name'];
                     let goal = lists[i]['goal'];
+                    let now = lists[i]['now'];
                     let how = lists[i]['how'];
 
                     let tempHtml = `<li class="list_wrap clearfix">
@@ -53,7 +58,7 @@ function showList() {
                                             <div class="progress_wrap">
                                                 <button onclick="percent('down')" class="down">-</button>
                                                 <div class="progress">
-                                                    <div id="bar" class="progress_bar">80%</div>
+                                                    <div id="bar" class="progress_bar" style="width: ${now}%;">${now}%</div>
                                                 </div>
                                                 <button onclick="percent('up')" class="up">+</button>
                                             </div>
@@ -74,14 +79,28 @@ function showList() {
 }
 
 
+// progress bar
+function percent(type) {
+    let elem = document.getElementById('bar');
+    let width = elem.innerText;
+
+    if (type === 'down') {
+        width = parseInt(width) - 10;
+    } else if (type === 'up') {
+        width = parseInt(width) + 10;
+    }
+
+    elem.style.width = width + '%';
+    elem.innerHTML = width + '%';
+}
 
 
 // 리스트 지우기
-function deleteList(name){
-     $.ajax({
+function deleteList(name) {
+    $.ajax({
         type: 'POST',
         url: '/list/delete',
-        data: {name_give:name},
+        data: {name_give: name},
         success: function (response) {
             if (response['result'] == 'success') {
                 alert('리스트를 삭제했습니다.')

@@ -63,7 +63,7 @@ h1 {
     font-size: 14px;
 }
 
-#name, #goal, #how {
+#name, #goal, #now, #how {
     width: 100%;
     border: 1px solid #444444;
     padding: 8px;
@@ -152,7 +152,6 @@ h2 {
     box-sizing: border-box;
 }
 .progress_bar{
-    width: 80%;
     height: 36px;
     background-color: #bdbdbd;
     border: 1px solid #bdbdbd;

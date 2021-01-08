@@ -16,11 +16,13 @@ def home():
 def write_list():
     name_receive = request.form['name_give']
     goal_receive = request.form['goal_give']
+    now_receive = request.form['now_give']
     how_receive = request.form['how_give']
 
     bucketlist = {
         'name' : name_receive,
         'goal': goal_receive,
+        'now': now_receive,
         'how': how_receive
     }
 
@@ -32,7 +34,6 @@ def write_list():
 def get_list():
     bucketlists = list(db.bucketlists.find({}, {'_id':0}))
     return jsonify({'result':'success', 'bucketlists':bucketlists})
- 
 
 # 리스트 지우기
 @app.route('/list/delete', methods=['POST'])
