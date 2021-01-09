@@ -56,11 +56,11 @@ function showList() {
                                         </div>
                                         <div class="list_bottom clearfix">
                                             <div class="progress_wrap">
-                                                <button onclick="percent('down')" class="down">-</button>
+                                                <button onclick="down('${name}')" class="down">-</button>
                                                 <div class="progress">
                                                     <div id="bar" class="progress_bar" style="width: ${now}%;">${now}%</div>
                                                 </div>
-                                                <button onclick="percent('up')" class="up">+</button>
+                                                <button onclick="up('${name}')" class="up">+</button>
                                             </div>
                                             <div class="btn_wrap">
                                                 <button onclick="editList()" id="edit_btn" class="edit_list">수정</button>
@@ -78,21 +78,40 @@ function showList() {
     })
 }
 
+//progress bar
+function down(name) {
+    $.ajax({
+        type: 'POST',
+        url: 'list/percent',
+        data: {'name_give': name},
+        success: function (response) {
+            if (response['result'] === 'success') {
+                let elem = document.getElementById('bar');
+                let width = elem.innerText;
+                width = parseInt(width) - 10;
+                elem.style.width = width + '%';
+                elem.innerHTML = width + '%';
+                window.location.reload();
+            }
+        }
+    })
+}
+
 
 // progress bar
-function percent(type) {
-    let elem = document.getElementById('bar');
-    let width = elem.innerText;
-
-    if (type === 'down') {
-        width = parseInt(width) - 10;
-    } else if (type === 'up') {
-        width = parseInt(width) + 10;
-    }
-
-    elem.style.width = width + '%';
-    elem.innerHTML = width + '%';
-}
+// function percent(type) {
+//     let elem = document.getElementById('bar');
+//     let width = elem.innerText;
+//
+//     if (type === 'down') {
+//         width = parseInt(width) - 10;
+//     } else if (type === 'up') {
+//         width = parseInt(width) + 10;
+//     }
+//
+//     elem.style.width = width + '%';
+//     elem.innerHTML = width + '%';
+// }
 
 
 // 리스트 지우기

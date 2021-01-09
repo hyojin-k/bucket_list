@@ -35,6 +35,16 @@ def get_list():
     bucketlists = list(db.bucketlists.find({}, {'_id':0}))
     return jsonify({'result':'success', 'bucketlists':bucketlists})
 
+# 달성률
+@app.route('/list/percent', methods=['POST'])
+def down_percent():
+    name_receive = request.form['name_give']
+    percent = db.bucketlists.find_one({'name':name_receive})
+    new_now = int(percent['now']) - 10
+    db.bucketlists.update_one({'name':name_receive}, {'$set':{'now':new_now}})
+    return jsonify({'result': 'success'})
+
+
 # 리스트 지우기
 @app.route('/list/delete', methods=['POST'])
 def delete_list():
