@@ -82,7 +82,7 @@ function showList() {
 function down(name) {
     $.ajax({
         type: 'POST',
-        url: 'list/percent',
+        url: 'list/percent_down',
         data: {'name_give': name},
         success: function (response) {
             if (response['result'] === 'success') {
@@ -97,6 +97,23 @@ function down(name) {
     })
 }
 
+function up(name) {
+    $.ajax({
+        type: 'POST',
+        url: 'list/percent_up',
+        data: {'name_give': name},
+        success: function (response) {
+            if (response['result'] === 'success') {
+                let elem = document.getElementById('bar');
+                let width = elem.innerText;
+                width = parseInt(width) + 10;
+                elem.style.width = width + '%';
+                elem.innerHTML = width + '%';
+                window.location.reload();
+            }
+        }
+    })
+}
 
 // progress bar
 // function percent(type) {
