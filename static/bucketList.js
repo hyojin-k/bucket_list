@@ -63,8 +63,14 @@ function showList() {
                                                 <button onclick="up('${name}')" class="up">+</button>
                                             </div>
                                             <div class="btn_wrap">
-                                                <button onclick="editList()" id="edit_btn" class="edit_list">수정</button>
-                                                <button onclick="deleteList('${name}')" id="del_btn" class="del_list">삭제</button>
+                                                <div class="btn_div">
+                                                    <button onclick="editList('${name}')" id="edit_btn" class="edit_list">수정</button>
+                                                    <button onclick="deleteList('${name}')" id="del_btn" class="del_list">삭제</button>
+                                                </div>
+                                                <div class="edit_div">
+                                                    <button onclick="editComplete('${name}')" id="com_btn" class="com_list">완료</button>
+                                                    <button onclick="editCancle('${name}')" id="can_btn" class="can_list">취소</button>
+                                                </div>
                                             </div>
                                         </div>
                                     </li>`
@@ -115,20 +121,6 @@ function up(name) {
     })
 }
 
-// progress bar
-// function percent(type) {
-//     let elem = document.getElementById('bar');
-//     let width = elem.innerText;
-//
-//     if (type === 'down') {
-//         width = parseInt(width) - 10;
-//     } else if (type === 'up') {
-//         width = parseInt(width) + 10;
-//     }
-//
-//     elem.style.width = width + '%';
-//     elem.innerHTML = width + '%';
-// }
 
 
 // 리스트 지우기

@@ -167,18 +167,21 @@ h2 {
     float: right;
 }
 
-.edit_list {
+.edit_list, .com_list {
     border: 1px solid #444444;
     padding: 8px 10px;
     margin-left: 10px;
 }
 
-.del_list {
+.del_list, .can_list {
     background-color: #444444;
     border: 1px solid #444444;
     color: #ffffff;
     padding: 8px 10px;
     margin-left: 10px;
+}
+.edit_div{
+    display: none;
 }
 
 @media (max-width: 800px) {
