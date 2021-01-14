@@ -58,6 +58,15 @@ h1 {
     padding: 20px;
     margin: 0 auto;
 }
+.add_name{
+    width: 60%;
+    float: left;
+}
+.add_now{
+    width: 32%;
+    margin-left:8%;
+    float: left;
+}
 
 .list_div {
     font-size: 14px;
