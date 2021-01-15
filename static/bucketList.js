@@ -121,7 +121,21 @@ function up(name) {
     })
 }
 
+// 리스트 수정
+function editList(name) {
+    showEdit(name);
+    let how = $(`.list_how`).text();
+    $(`.list_how`).val(how);
+}
 
+function showEdit(name){
+    $('.list_how').show();
+    $('.com_list').css({'display':'block'});
+    $('.can_list').css({'display':'block'});
+
+    $('.edit_list').hide();
+    $('.del_list').hide();
+}
 
 // 리스트 지우기
 function deleteList(name) {
