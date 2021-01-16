@@ -130,11 +130,9 @@ function editList(name) {
 
 function showEdit(name){
     $('.list_how').show();
-    $('.com_list').css({'display':'block'});
-    $('.can_list').css({'display':'block'});
+    $('.edit_div').css({'display':'block'});
 
-    $('.edit_list').hide();
-    $('.del_list').hide();
+    $('.btn_div').hide();
 }
 
 // 리스트 지우기
