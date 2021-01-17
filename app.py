@@ -59,6 +59,14 @@ def up_percent():
         db.bucketlists.update_one({'name':name_receive}, {'$set':{'now':new_now}})
     return jsonify({'result': 'success'})
 
+# 리스트 수정
+@app.route('/list/edit', methods=['POST'])
+def edit_list():
+    name_receive = request.form['name_give']
+    how_receive = request.form['how_give']
+    db.bucketlists.update_one({'name':name_receive}, {'$set':{'how':how_receive}})
+    return jsonify({'result': 'success'})
+
 # 리스트 지우기
 @app.route('/list/delete', methods=['POST'])
 def delete_list():
