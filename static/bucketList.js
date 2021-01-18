@@ -69,7 +69,7 @@ function showList() {
                                                 </div>
                                                 <div class="edit_div">
                                                     <button onclick="editComplete('${name}')" id="com_btn" class="com_list">완료</button>
-                                                    <button onclick="editCancle('${name}')" id="can_btn" class="can_list">취소</button>
+                                                    <button onclick="editCancel('${name}')" id="can_btn" class="can_list">취소</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -130,9 +130,19 @@ function editList(name) {
 
 function showEdit(name){
     $('.list_how').show();
-    $('.edit_div').css({'display':'block'});
+    $('.edit_div').show();
 
     $('.btn_div').hide();
+}
+
+function editComplete(name){
+
+}
+function editCancel(name){
+    // $('.list_how').hide();
+    $('.edit_div').hide();
+
+    $('.btn_div').show();
 }
 
 // 리스트 지우기
