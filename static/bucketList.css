@@ -125,7 +125,10 @@ h2 {
     font-style: italic;
     margin: 20px 0;
 }
-
+.list_how_text{
+    display: none;
+    width: 100%;
+}
 .list_how {
     line-height: 1.6;
     word-break: keep-all;

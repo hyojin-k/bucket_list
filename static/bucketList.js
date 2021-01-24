@@ -51,6 +51,7 @@ function showList() {
                                         <div class="list_top">
                                             <h3 class="list_name">${name}</h3>
                                             <p class="list_goal">${goal}</p>
+                                            <textarea class="list_how_text" cols="30" rows="10"></textarea>
                                             <p class="list_how">${how}</p>
                                            
                                         </div>
@@ -88,8 +89,8 @@ function showList() {
 function down(name) {
     $.ajax({
         type: 'POST',
-        url: 'list/percent_down',
-        data: {'name_give': name},
+        url: '/list/percent_down',
+        data: {name_give: name},
         success: function (response) {
             if (response['result'] === 'success') {
                 let elem = document.getElementById('bar');
@@ -106,8 +107,8 @@ function down(name) {
 function up(name) {
     $.ajax({
         type: 'POST',
-        url: 'list/percent_up',
-        data: {'name_give': name},
+        url: '/list/percent_up',
+        data: {name_give: name},
         success: function (response) {
             if (response['result'] === 'success') {
                 let elem = document.getElementById('bar');
@@ -125,23 +126,37 @@ function up(name) {
 function editList(name) {
     showEdit(name);
     let how = $(`.list_how`).text();
-    $(`.list_how`).val(how);
+    $(`.list_how_text`).val(how);
 }
 
 function showEdit(name){
-    $('.list_how').show();
+    $('.list_how_text').show();
     $('.edit_div').show();
 
+    $('.list_how').hide();
     $('.btn_div').hide();
 }
 
 function editComplete(name){
+    let how = $('.list_how_text').val();
 
+    $.ajax({
+        type: 'POST',
+        url: '/list/edit',
+        data: {name_give: name, how_give: how},
+        success: function (response) {
+            if (response['result'] === 'success') {
+
+                window.location.reload();
+            }
+        }
+    })
 }
 function editCancel(name){
-    // $('.list_how').hide();
+    $('.list_how_text').hide();
     $('.edit_div').hide();
 
+    $('.list_how').show();
     $('.btn_div').show();
 }
 
