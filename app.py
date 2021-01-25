@@ -1,5 +1,6 @@
 from pymongo import MongoClient
-from flask import Flask, render_template,jsonify, request
+from flask import Flask, render_template, jsonify, request
+from datetime import datetime
 
 
 app = Flask(__name__)
@@ -23,7 +24,8 @@ def write_list():
         'name' : name_receive,
         'goal': goal_receive,
         'now': now_receive,
-        'how': how_receive
+        'how': how_receive,
+        'time': datetime.now()
     }
 
     db.bucketlists.insert_one(bucketlist)
@@ -32,7 +34,7 @@ def write_list():
 
 @app.route('/list', methods=['GET'])
 def get_list():
-    bucketlists = list(db.bucketlists.find({}, {'_id':0}))
+    bucketlists = list(db.bucketlists.find({}, {'_id':0}).sort('time',-1))
     return jsonify({'result':'success', 'bucketlists':bucketlists})
 
 # 달성률 down
