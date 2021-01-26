@@ -33,6 +33,19 @@ function addList() {
     }
 }
 
+function randomName(length){
+    let result = '';
+    let characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890';
+    let charactersLength = characters.length;
+
+    for(let i= 0; i<length; i++){
+        let number = Math.random() * charactersLength;
+        let index = Math.floor(number);
+        result += charactoers.charAt(index);
+    }
+    return result;
+}
+
 function showList() {
     $.ajax({
         type: "GET",
