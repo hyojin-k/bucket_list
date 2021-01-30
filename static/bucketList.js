@@ -3,18 +3,6 @@ $(document).ready(function () {
     showList();
 });
 
-function randomName(length){
-    let result = '';
-    let characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890';
-    let charactersLength = characters.length;
-
-    for(let i= 0; i<length; i++){
-        let number = Math.random() * charactersLength;
-        let index = Math.floor(number);
-        result += charactoers.charAt(index);
-    }
-    return result;
-}
 
 function addList() {
     let name = $('#name').val();
@@ -22,7 +10,6 @@ function addList() {
     let now = $('#now').val();
     let how = $('#how').val();
 
-    let username = randomName(6);
 
     if (name === '') {
         alert('버킷리스트를 입력해주세요')
@@ -37,7 +24,7 @@ function addList() {
         $.ajax({
             type: "POST",
             url: "/list",
-            data: {name_give: name, goal_give: goal, now_give: now, how_give: how, username_give: username},
+            data: {name_give: name, goal_give: goal, now_give: now, how_give: how},
             success: function (response) {
                 if (response["result"] == "success") {
                     alert(response["msg"]);
@@ -61,14 +48,13 @@ function showList() {
                     let goal = lists[i]['goal'];
                     let now = lists[i]['now'];
                     let how = lists[i]['how'];
-                    let username = lists[i]['username'];
 
-                    let tempHtml = `<li class="list_wrap clearfix">
+                    let tempHtml =`<li class="list_wrap clearfix">
                                         <div class="list_top">
-                                            <h3 id="${username}-name" class="list_name">${name}</h3>
-                                            <p id="${username}-goal" class="list_goal">${goal}</p>
-                                            <textarea id="${username}-how-text" class="list_how_text" cols="30" rows="10"></textarea>
-                                            <p id="${username}-how" class="list_how">${how}</p>
+                                            <h3 id="list-name" class="list_name">${name}</h3>
+                                            <p id="list-goal" class="list_goal">${goal}</p>
+                                            <textarea id="how-text" class="list_how_text" cols="30" rows="10"></textarea>
+                                            <p id="list-how" class="list_how">${how}</p>
                                            
                                         </div>
                                         <div class="list_bottom clearfix">
@@ -80,13 +66,13 @@ function showList() {
                                                 <button onclick="up('${name}')" class="up">+</button>
                                             </div>
                                             <div class="btn_wrap">
-                                                <div id="${username}-btn-div" class="btn_div">
-                                                    <button onclick="editList('${name}')" id="${username}-edit" class="edit_list">수정</button>
-                                                    <button onclick="deleteList('${name}')" id="${username}-del" class="del_list">삭제</button>
+                                                <div id="btn-div" class="btn_div">
+                                                    <button onclick="editList('${name}')" id="edit" class="edit_list">수정</button>
+                                                    <button onclick="deleteList('${name}')" id="del" class="del_list">삭제</button>
                                                 </div>
-                                                <div id="${username}-edit-div" class="edit_div">
-                                                    <button onclick="editComplete('${name}')" id="${username}-com" class="com_list">완료</button>
-                                                    <button onclick="editCancel('${name}')" id="${username}-can" class="can_list">취소</button>
+                                                <div id="edit-div" class="edit_div">
+                                                    <button onclick="editComplete('${name}')" id="com" class="com_list">완료</button>
+                                                    <button onclick="editCancel('${name}')" id="can" class="can_list">취소</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -139,27 +125,27 @@ function up(name) {
 }
 
 // 리스트 수정
-function editList(username) {
-    showEdit(username);
-    let how = $(`#${username}-how`).text();
-    $(`#${username}-how-text`).val(how);
+function editList(name) {
+    showEdit(name);
+    let how = $(`#list-how`).text();
+    $(`#how-text`).val(how);
 }
 
-function showEdit(username){
-    $(`#${username}-how-text`).show();
-    $(`#${username}-edit`).show();
+function showEdit(name){
+    $(`#how-text`).show();
+    $(`#edit-div`).show();
 
-    $(`#${username}-how`).hide();
-    $(`#${username}-btn-div`).hide();
+    $(`#list-how`).hide();
+    $(`#btn-div`).hide();
 }
 
-function editComplete(username){
-    let how = $(`#${username}-how-text`).val();
+function editComplete(name){
+    let how = $(`#how-text`).val();
 
     $.ajax({
         type: 'POST',
         url: '/list/edit',
-        data: { how_give: how, username_give: username},
+        data: {name_give: name, how_give: how},
         success: function (response) {
             if (response['result'] === 'success') {
 
@@ -168,12 +154,13 @@ function editComplete(username){
         }
     })
 }
-function editCancel(username){
-    $(`#${username}-how-text`).hide();
-    $(`#${username}-edit-div`).hide();
 
-    $(`#${username}-how`).show();
-    $(`#${username}-btn-div`).show();
+function editCancel(name){
+    $(`#how-text`).hide();
+    $(`#edit-div`).hide();
+
+    $(`#list-how`).show();
+    $(`#btn-div`).show();
 }
 
 // 리스트 지우기

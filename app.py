@@ -19,14 +19,12 @@ def write_list():
     goal_receive = request.form['goal_give']
     now_receive = request.form['now_give']
     how_receive = request.form['how_give']
-    username_receive = request.form['username_give']
 
     bucketlist = {
         'name' : name_receive,
         'goal': goal_receive,
         'now': now_receive,
         'how': how_receive,
-        'username': username_receive,
         'time': datetime.now()
     }
 
@@ -68,8 +66,7 @@ def up_percent():
 def edit_list():
     name_receive = request.form['name_give']
     how_receive = request.form['how_give']
-    username_receive = request.form['username_give']
-    db.bucketlists.update_one({'name':name_receive}, {'username':username_receive}, {'$set':{'how':how_receive}})
+    db.bucketlists.update_one({'name':name_receive}, {'$set':{'how':how_receive}})
     return jsonify({'result': 'success'})
 
 # 리스트 지우기
