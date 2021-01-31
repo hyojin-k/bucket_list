@@ -3,13 +3,11 @@ $(document).ready(function () {
     showList();
 });
 
-
 function addList() {
     let name = $('#name').val();
     let goal = $('#goal').val();
     let now = $('#now').val();
     let how = $('#how').val();
-
 
     if (name === '') {
         alert('버킷리스트를 입력해주세요')
@@ -53,8 +51,8 @@ function showList() {
                                         <div class="list_top">
                                             <h3 id="list-name" class="list_name">${name}</h3>
                                             <p id="list-goal" class="list_goal">${goal}</p>
-                                            <textarea id="how-text" class="list_how_text" cols="30" rows="10"></textarea>
-                                            <p id="list-how" class="list_how">${how}</p>
+                                            <textarea id="${name}-how-text" class="list_how_text" cols="30" rows="10"></textarea>
+                                            <p id="${name}-list-how" class="list_how">${how}</p>
                                            
                                         </div>
                                         <div class="list_bottom clearfix">
@@ -66,11 +64,11 @@ function showList() {
                                                 <button onclick="up('${name}')" class="up">+</button>
                                             </div>
                                             <div class="btn_wrap">
-                                                <div id="btn-div" class="btn_div">
+                                                <div id="${name}-btn-div" class="btn_div">
                                                     <button onclick="editList('${name}')" id="edit" class="edit_list">수정</button>
                                                     <button onclick="deleteList('${name}')" id="del" class="del_list">삭제</button>
                                                 </div>
-                                                <div id="edit-div" class="edit_div">
+                                                <div id="${name}-edit-div" class="edit_div">
                                                     <button onclick="editComplete('${name}')" id="com" class="com_list">완료</button>
                                                     <button onclick="editCancel('${name}')" id="can" class="can_list">취소</button>
                                                 </div>
@@ -127,20 +125,20 @@ function up(name) {
 // 리스트 수정
 function editList(name) {
     showEdit(name);
-    let how = $(`#list-how`).text();
-    $(`#how-text`).val(how);
+    let how = $(`#${name}-list-how`).text();
+    $(`#${name}-how-text`).val(how);
 }
 
 function showEdit(name){
-    $(`#how-text`).show();
-    $(`#edit-div`).show();
+    $(`#${name}-how-text`).show();
+    $(`#${name}-edit-div`).show();
 
-    $(`#list-how`).hide();
-    $(`#btn-div`).hide();
+    $(`#${name}-list-how`).hide();
+    $(`#${name}-btn-div`).hide();
 }
 
 function editComplete(name){
-    let how = $(`#how-text`).val();
+    let how = $(`#${name}-how-text`).val();
 
     $.ajax({
         type: 'POST',
@@ -156,11 +154,11 @@ function editComplete(name){
 }
 
 function editCancel(name){
-    $(`#how-text`).hide();
-    $(`#edit-div`).hide();
+    $(`#${name}-how-text`).hide();
+    $(`#${name}-edit-div`).hide();
 
-    $(`#list-how`).show();
-    $(`#btn-div`).show();
+    $(`#${name}-list-how`).show();
+    $(`#${name}-btn-div`).show();
 }
 
 // 리스트 지우기
